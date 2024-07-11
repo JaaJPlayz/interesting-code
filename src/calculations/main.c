@@ -6,21 +6,17 @@ int add(int a, int b) {
   return a + b;
 }
 
-int* get_numbers() {
-  int* numbers = malloc(sizeof(int) * 2);
-
-  numbers[0] = rand();
-  numbers[1] = rand();
-
-  return numbers;
-}
-
 
 int main(void) {
   srand(time(NULL));
+  int numbers[2]; 
+
+  for (int i = 0; i < 2; i++) {
+    numbers[i] = rand() % 100;
+  }
 
   for (int i = 0; i < 10; i++) {
-    printf("%d + %d = %d\n", get_numbers()[0], get_numbers()[1], add(get_numbers()[0], get_numbers()[1]));
+    printf("%d + %d = %d\n", numbers[0], numbers[1], add(numbers[0], numbers[1]));
   }
   return 0;
 }
